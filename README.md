@@ -1,66 +1,61 @@
 # Write Free Science Books to Get Famous Website
 
-Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering from perfect open source books made by free by people who want to get famous thus better paying jobs.
+Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
-This is just a wacky project idea right now, there is no prototype.
+This is just a wacky project idea right now, there is no prototype, nor business model.
 
 Method: a crash between:
 
 - Stack Overflow gamification
-- GitHub pull requests
-- wiki books
+- GitHub-like pull requests. Not anyone can edit anything like Wikipedia madness, but you *can* make your own copy (fork), and a precise a suggestion.
+- Wikipedia. Imagine if you could link up-votable application examples to the page of a Mathematics theorem.
 - page rank-like algorithm for user reputation, including a per-tag reputation
 
 ## Intro
 
-Consider a Stack-Overflow-like Q&A website:
+Consider a [Stack-Overflow]()-like Q&A website:
 
 - there are questions and answers
-- questions have tags, e.g. C, C++, Java
-- users have reputation which say good much knowledge they have, and lead to better jobs (?)
+- questions have tags, e.g. programming languages like `C`, `C++`, `Java`
+- users have a reputation measure. If you upvote someone's question or answer, his reputation increases. You need 15 reputation to upvote someone.
+
+But Stack Overflow's reputation system sucks because:
+
+- it the living ultimate god of `C++` upvotes you, you get `10` reputation
+- if the first-day newb of `Java` upvotes you, you also get `10` reputation
 
 We want to improve Stack Overflow's simplistic linear reputation system to determine who is the user who knows the most about a given tag.
 
-Fundamental requirement: we are looking for a Google-rank-like algorithm (Eigenvalue based) such that:
+Fundamental requirement: a Google PageRank-like algorithm (Eigenvalue based) such that:
 
--   if someone with high rep on a given tag upvotes you, you get a lot of rep on that tag. More than you would get from someone with low reputation on that tag.
+-   everyone has one reputation per tag
+-   if someone with high rep on a given tag upvotes you, you get a lot of reputation on that tag. More than you would get from someone with low reputation on that tag.
 
 Optional but very desirable requirements:
 
--   people can upvote tags on a given question to say: "I agree that this question deserves this tag".
+-   users can upvote tags on a given question to say: "I agree that this question deserves this tag".
 
-    The vote of people with higher rep should count more.
+    The vote of users with higher rep on the tag should count more.
 
-    A possible problem is that an user with huge rep could copy someone else's answer and get more visibility.
-
--   each time you upvote a given person, it has less positive impact on his reputation for that tag.
+-   each time you upvote the same given person, it has less positive impact on his reputation for that tag.
 
     This would counter voting fraud, e.g. of close groups of friends which upvote each other a lot.
 
 Another problem this would solve: multiple site split silliness: <http://meta.stackoverflow.com/questions/271989/does-it-pay-to-spin-off-sites> Since there is no human moderation, only algorithms, splitting websites makes no sense.
 
-## Extra problem: how to deal with too broad questions and give people meaningful reputation?
+## Extra problem 1: post age
 
-This is unrelated (?), but is a major problem.
+How to determine if something is "original research" or not?
 
-Stack Overflow discourages posts that are too "speculative" or have "too many" answers.
+E.g.: a genius discovers something and publishes it really badly explained.
 
-The rationale is to not give reputation to trivial answers by non-experts, so that reputation is a meaningful measure of expertise. Otherwise it degenerates to Quora.
+Someone less intelligent comes, explains it better, and gets widely read.
 
-However, many of those posts are useful.
-
-There are two solutions for that:
-
-- close questions and reject them entirely.
-- make into a wiki post: not one gets rep. This solution is not as popular now.
-
-Both of those processes require moderator intervention, which is manual, subjective and does not scale.
-
-Find an algorithm that solves this problem elegantly.
-
-Another problem: determine if something is "original research" or not, to differentiate who knows how to explain, and who knows hot to invent.
+Or someone who just posts a bunch of links to good sources.
 
 ## Extra problem 2: post age
+
+Post metrics on Stack Overflow also suck: the post with most upvotes goes up and that is it.
 
 It would be cool to give a boost to recent posts that got lots of upvotes.
 
@@ -83,7 +78,7 @@ It would be cool for a user to say: I trust this other user on given tags / all 
 
 Rate how much one user likes other users based on his actions.
 
-E.g.: someone who only upvotes C questions will have a score of 0 for someone with only Java questions.
+E.g.: someone who only upvotes C questions will give score 0 for someone with only Java questions.
 
 ## Testing: a difficulty
 
@@ -122,19 +117,13 @@ PageRank tutorials:
 
 - http://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm
 
-### Vote fraud
-
-- <http://blog.stackoverflow.com/2008/12/vote-fraud-and-you/>
-- <http://meta.stackexchange.com/questions/126829/what-is-serial-voting-and-how-does-it-affect-me>
-- <http://transpose.blogspot.fr/2014/10/several-stack-overflow-contributors.html> There was an attack in 2014 in the Matlab tag, likely statistical.
-
 ## Who to propose this to
 
 <https://catalogue.polytechnique.fr/cours.php?id=2913>
 
 <http://psc.polytechnique.fr/>
 
-## Ideas
+## Klgorithm possibilities
 
 The most obvious possibility is to reduce the problem to pagerank.
 
