@@ -117,13 +117,7 @@ PageRank tutorials:
 
 - http://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm
 
-## Who to propose this to
-
-<https://catalogue.polytechnique.fr/cours.php?id=2913>
-
-<http://psc.polytechnique.fr/>
-
-## Klgorithm possibilities
+## Algorithm possibilities
 
 The most obvious possibility is to reduce the problem to pagerank.
 
@@ -138,3 +132,36 @@ To consider tags without weight, in addition:
 - each user is represented by one node per tag userN-tagM
 - if userN upvotes postN, add a link from userN-tagM to postN if postN is tagged with tagM
 - link from postN to each userN-tagM where userN is the autor and tagM a tag of the post
+
+## Business model
+
+### Consulting
+
+Start with consulting for universities to get some cash flowing.
+
+Help teachers create perfect courses.
+
+At the same time, develop the website, and use the generated content to bootstrap it.
+
+Choose a domain of knowledge, generate perfect courses for it, and find all teachers of the domain in the world who are teaching that and help them out.
+
+Then expand out to other domains.
+
+TODO: which domain of knowledge should we go for? The more precise the better.
+
+- maths is perfect because it "never" changes. But does not make money.
+- computer science might be good, e.g. machine learning.
+
+### Knowledge market
+
+If enough people use it, we can let people sell courses through us, to become the YouTube of courses.
+
+Teachers have the incentive of making open source to get more students.
+
+Students pay when they want help to learn something.
+
+### Who to propose this to
+
+<https://catalogue.polytechnique.fr/cours.php?id=2913>
+
+<http://psc.polytechnique.fr/>
