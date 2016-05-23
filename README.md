@@ -2,7 +2,7 @@
 
 Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
-This is just a wacky project idea right now, there is no prototype, nor business model.
+This is just a wacky project idea right now, there is no implementation, nor business model.
 
 Method: a crash between:
 
@@ -10,6 +10,10 @@ Method: a crash between:
 - GitHub-like pull requests. Not anyone can edit anything like Wikipedia madness, but you *can* make your own copy (fork), and a precise a suggestion.
 - Wikipedia. Imagine if you could link up-votable application examples to the page of a Mathematics theorem.
 - page rank-like algorithm for user reputation, including a per-tag reputation
+
+Very early stage prototype(s):
+
+- <https://github.com/cirosantilli/free-books-django-raw>
 
 ## Intro
 
@@ -112,10 +116,16 @@ General reputation systems:
 
 - https://en.wikipedia.org/wiki/Reputation_system
 - https://en.wikipedia.org/wiki/Bibliometrics
+- https://en.wikipedia.org/wiki/Network_theory#Link_analysis
 
 PageRank tutorials:
 
 - http://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm
+
+PageRank alternatives:
+
+- https://en.wikipedia.org/wiki/TrustRank Starts from a set of trusted pages. Interesting, as that could be pages / users which were upvoted.
+- https://en.wikipedia.org/wiki/HITS_algorithm separates author from referrer, which could be interesting to give more reputation to those who actually write material.
 
 ## Algorithm possibilities
 
