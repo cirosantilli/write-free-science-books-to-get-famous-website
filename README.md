@@ -78,6 +78,10 @@ Does Google consider post date?
 
 It would be cool for a user to say: I trust this other user on given tags / all tags.
 
+Maybe this is required. E.g., given a real network, a bot network could make an exact copy of it, and that should have the same reputation as the real one.
+
+Such relations make per-user score of other users / posts even more important.
+
 ## Extra problem 4: per user score of all other users
 
 Rate how much one user likes other users based on his actions.
@@ -92,7 +96,6 @@ So generating meaningful test data would be a problem in itself.
 
 ## Research
 
-- http://meta.stackexchange.com/questions/28874/applying-pagerank-like-algorithm-to-stack-overflow-votes
 - http://meta.stackexchange.com/questions/98141/ranking-users-similar-to-page-rank
 - http://meta.stackexchange.com/questions/64938/doesnt-science-have-a-better-reputation-system-than-stack-overflow
 - http://meta.stackexchange.com/questions/103735/modified-h-index-for-questions-and-answers
@@ -103,9 +106,6 @@ Software:
     - https://bitbucket.org/bibsonomy/bibsonomy
     - http://www2007.org/workshops/paper_25.pdf
 -   https://github.com/networkx/networkx Python, does a lot of other graph things
--   https://github.com/louridas/pagerank C++
--   https://github.com/dcadenas/rankable_graph Ruby
--   https://github.com/dcadenas/pagerank/ Go, port of rankable_graph
 
 StackApps:
 
@@ -118,7 +118,61 @@ General reputation systems:
 - https://en.wikipedia.org/wiki/Bibliometrics
 - https://en.wikipedia.org/wiki/Network_theory#Link_analysis
 
-PageRank tutorials:
+Concept maps:
+
+- http://conceptnet5.media.mit.edu/
+
+Social network:
+
+-   <https://en.wikipedia.org/wiki/Tsū_(social_network)>
+    - <http://www.tsu.co/>
+    - shares 90% ad revenue with content creators
+-   <http://www.synereo.com/whitepapers/synereo.pdf#subsection.2.2.2> distributed social network, seems to use quality metrics to determine how much content will be hosted from each person?
+    - paper <http://www.synereo.com/whitepapers/synereo.pdf#subsection.2.2.2>
+    - TODO open source? <https://github.com/synereo> Where is the source?
+    - Where does their money come from? When will it launch?
+- SocialSwarm
+- Diaspora
+
+### PageRank
+
+Implementations:
+
+-   https://github.com/louridas/pagerank C++
+-   https://github.com/dcadenas/rankable_graph Ruby
+-   https://github.com/dcadenas/pagerank/ Go, port of rankable_graph
+-   https://github.com/frankmcsherry/pagerank
+
+Mathematical problem: make a stochastic matrix graph where each entry equals:
+
+- `(1 / n_links)` if there is a link going out
+- `0` otherwise
+
+Now calculate the steady state of the Markov process: <https://en.wikipedia.org/wiki/Markov_chain#Steady-state_analysis_and_limiting_distributions> which is the same as calculating the eigenvector.
+
+Convergence of simple interactive algorithm: stochastic link matrix M iff M is both: (TODO proof):
+
+-   irreducible: definition: no strongly connected components smaller than the entire matrix. You can get from any place to any place.
+
+    Or in other words, there are no sets of pages from which the surfer cannot escape. One example of this is a page without any outgoing links.
+
+    http://drops.dagstuhl.de/volltexte/2007/1072/pdf/07071.VignaSebastiano.Paper.1072.pdf the damping factor can be interpreted as a probability that the random surfer will jump to a random page. It solves in particular the problem if the page has no outgoing links.
+
+    If is the same as adding a `dumping_factor / total_n_pages` to every element of he matrix, and multiplying the actual matrix by `1 - damping_factor`.
+
+    1 is always the largest eigenvalue http://math.stackexchange.com/questions/40320/proof-that-the-largest-eigenvalue-of-a-stochastic-matrix-is-1 wit Looks like 1 is the only eigenvalue: <http://math.stackexchange.com/questions/351142/why-markov-matrices-always-have-1-as-an-eigenvalue>
+
+    Existence of a single largest real eigenvalue is guaranteed by https://en.wikipedia.org/wiki/Perron–Frobenius_theorem
+
+-   aperiodic <http://math.stackexchange.com/questions/112151/what-values-makes-this-markov-chain-aperiodic>
+
+    Aperiodicity is likely for the huge graph of the web, so we forget about it.
+
+Proposal to use it on Stack Overflow:
+
+- http://meta.stackexchange.com/questions/28874/applying-pagerank-like-algorithm-to-stack-overflow-votes
+
+PageRank tutorials and papers:
 
 - http://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm
 
@@ -126,6 +180,15 @@ PageRank alternatives:
 
 - https://en.wikipedia.org/wiki/TrustRank Starts from a set of trusted pages. Interesting, as that could be pages / users which were upvoted.
 - https://en.wikipedia.org/wiki/HITS_algorithm separates author from referrer, which could be interesting to give more reputation to those who actually write material.
+- https://www.nayuki.io/page/computing-wikipedias-internal-pageranks Wikipedia internal PageRanks, using a simple proprietary open-source Java PageRank implementation.
+
+PageRank variants:
+
+-   topic sensitive TODO understand better. Seems to modify the damping biasing to favour some pre-determined pages, on the paper based on DMOZ human consensus classification (no upvotes, just politics)
+    - we could use something like that but based on votes of a given user, but it could be too expensive
+    - http://www-cs-students.stanford.edu/~taherh/papers/topic-sensitive-pagerank.pdf Contains a great explanation of PageRank.
+    - http://drops.dagstuhl.de/volltexte/2007/1072/pdf/07071.VignaSebastiano.Paper.1072.pdf
+    - Seems to use an arbitrary previously fixed number of topics?
 
 ## Algorithm possibilities
 
@@ -142,6 +205,21 @@ To consider tags without weight, in addition:
 - each user is represented by one node per tag userN-tagM
 - if userN upvotes postN, add a link from userN-tagM to postN if postN is tagged with tagM
 - link from postN to each userN-tagM where userN is the autor and tagM a tag of the post
+
+## Tag hierarchy extraction
+
+We could be able to deduce that `animal` includes `dog`, is a lot of articles tagged as 
+
+- Tibeli 2013 http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084133
+
+## Websites with tag votes by any user
+
+- Flickr 2016 only photo author can add tags
+- Delicious TODO down?
+
+## Datasets
+
+- https://en.wikipedia.org/wiki/DMOZ http://www.dmoz.org/ http://c2.com/cgi/wiki?OpenDirectoryProject
 
 ## Business model
 
@@ -175,3 +253,11 @@ Students pay when they want help to learn something.
 <https://catalogue.polytechnique.fr/cours.php?id=2913>
 
 <http://psc.polytechnique.fr/>
+
+### Ads
+
+Possibly shared with top content producers, like Tsu.
+
+Plus a paid option to opt out of ads.
+
+But this is what YouTube does with videos, and it only pays for a ton of views...
