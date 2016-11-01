@@ -47,7 +47,7 @@ Optional but very desirable requirements:
 
 Another problem this would solve: multiple site split silliness: <http://meta.stackoverflow.com/questions/271989/does-it-pay-to-spin-off-sites> Since there is no human moderation, only algorithms, splitting websites makes no sense.
 
-## Extra problem 1: post age
+## Extra problem 1: original research
 
 How to determine if something is "original research" or not?
 
