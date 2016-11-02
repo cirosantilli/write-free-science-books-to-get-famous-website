@@ -47,7 +47,9 @@ Optional but very desirable requirements:
 
 Another problem this would solve: multiple site split silliness: <http://meta.stackoverflow.com/questions/271989/does-it-pay-to-spin-off-sites> Since there is no human moderation, only algorithms, splitting websites makes no sense.
 
-## Extra problem 1: original research
+## Extra problems
+
+### Original research vs explanations
 
 How to determine if something is "original research" or not?
 
@@ -57,7 +59,7 @@ Someone less intelligent comes, explains it better, and gets widely read.
 
 Or someone who just posts a bunch of links to good sources.
 
-## Extra problem 2: post age
+### Post age
 
 Post metrics on Stack Overflow also suck: the post with most upvotes goes up and that is it.
 
@@ -74,7 +76,7 @@ Does Google consider post date?
 
 - https://www.quora.com/When-Google-indexes-a-page-does-it-consider-that-pages-creation-date-when-it-comes-to-PR-computation
 
-## Extra problem 3: user trusts user
+### User trusts user
 
 It would be cool for a user to say: I trust this other user on given tags / all tags.
 
@@ -82,11 +84,31 @@ Maybe this is required. E.g., given a real network, a bot network could make an 
 
 Such relations make per-user score of other users / posts even more important.
 
-## Extra problem 4: per user score of all other users
+### Per user score of all other users
 
 Rate how much one user likes other users based on his actions.
 
 E.g.: someone who only upvotes C questions will give score 0 for someone with only Java questions.
+
+### Tag duplicates
+
+How to mark tags `java` and `Java` as being duplicates without moderators?
+
+Possible solution: everyone can mark tags as duplicate.
+
+Once you mark tags as duplicate, if you search for one, you will see both.
+
+### Pull request disagreements
+
+What happens if:
+
+- the writter of an answer dies, and someone makes a great pull request to his answer with 1M upvotes?
+- 50% of users agree with a pull request, 50% don't?
+
+Possible solution:
+
+- next to each answer, have a list of forks
+- everyone can mark an answer as the "best version" or just upvote the pull requests
 
 ## Testing: a difficulty
 
