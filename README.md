@@ -9,7 +9,7 @@ Method: a crash between:
 - Stack Overflow gamification
 - GitHub-like pull requests. Not anyone can edit anything like Wikipedia madness, but you *can* make your own copy (fork), and a precise a suggestion.
 - Wikipedia. Imagine if you could link up-votable application examples to the page of a Mathematics theorem.
-- page rank-like algorithm for user reputation, including a per-tag reputation and content recommendation (what are the best articles about a given subject?)
+- page rank-like algorithm for user reputation, including a per-tag reputation (which user knows more about mathematics?) and content recommendation (what are the best articles about a given subject?)
 
 Very early stage prototype(s):
 
