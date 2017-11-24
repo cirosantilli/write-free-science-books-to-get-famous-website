@@ -67,12 +67,16 @@ It would be cool to give a boost to recent posts that got lots of upvotes.
 
 They can't beat the older ones in total upvotes, but the upvote rate is a strong indicator of quality.
 
+Even better, would be to consider how many times users view EACH post in a single page, with some JS black magic. With that, we can just use the
+
+SO threads:
+
 - http://meta.stackexchange.com/questions/125455/sorting-new-answers-to-old-questions?rq=1
 - http://meta.stackexchange.com/questions/6662/how-to-give-some-boost-to-some-really-good-answers-that-arrive-late?rq=1
 - http://meta.stackexchange.com/questions/15805/how-can-we-make-good-answers-to-old-questions-float-to-the-top
 - http://meta.stackoverflow.com/questions/272570/how-to-deal-with-hugely-upvoted-bad-and-outdated-answers
 
-Does Google consider post date?
+Non SO literature:
 
 - https://www.quora.com/When-Google-indexes-a-page-does-it-consider-that-pages-creation-date-when-it-comes-to-PR-computation
 
