@@ -67,7 +67,7 @@ It would be cool to give a boost to recent posts that got lots of upvotes.
 
 They can't beat the older ones in total upvotes, but the upvote rate is a strong indicator of quality.
 
-Even better, would be to consider how many times users view EACH post in a single page, with some JS black magic. With that, we can just use the
+Even better, would be to consider how many times users view EACH post in a single page, with some JS black magic. With that, we can just use the Wilso score interval https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval as mentioned at: https://www.evanmiller.org/how-not-to-sort-by-average-rating.html
 
 SO threads:
 
