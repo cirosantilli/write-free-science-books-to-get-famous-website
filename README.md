@@ -155,6 +155,7 @@ Social network:
     - Where does their money come from? When will it launch?
 - SocialSwarm
 - Diaspora
+- https://github.com/debiki/ed-server no tags? Best go up focus.
 
 ### PageRank
 
