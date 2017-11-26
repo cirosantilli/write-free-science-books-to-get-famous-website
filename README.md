@@ -1,19 +1,26 @@
 # Write Free Science Books to Get Famous Website
 
-Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering from perfect open source books made for free by people who want to get famous to get better paying jobs.
+Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
-This is just a wacky project idea right now, there is no implementation, nor business model.
+Desired society impact: crush the current educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
+
+This is just a wacky project idea right now.
 
 Method: a crash between:
 
 - Stack Overflow gamification
 - GitHub-like pull requests. Not anyone can edit anything like Wikipedia madness, but you *can* make your own copy (fork), and a precise a suggestion.
-- Wikipedia. Imagine if you could link up-votable application examples to the page of a Mathematics theorem.
+- Wikipedia. Imagine if you could link up-votable application examples to the useless page of a Mathematics theorem, and add you own completely different versions of articles explaining them in your own perfect manner.
 - page rank-like algorithm for user reputation, including a per-tag reputation (which user knows more about mathematics?) and content recommendation (what are the best articles about a given subject?)
 
 Very early stage prototype(s):
 
 - <https://github.com/cirosantilli/free-books-django-raw>
+
+Why you can't make money with this website right now:
+
+- society has huge inertia
+- Stack Overflow is good enough (?), even though it could be so much better
 
 ## Intro
 
