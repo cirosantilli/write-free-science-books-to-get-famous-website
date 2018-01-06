@@ -2,7 +2,7 @@
 
 Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
-Desired society impact: crush the current educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
+Desired society impact: crush the current grossly inneficient educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
 
 This is just a wacky project idea right now.
 
