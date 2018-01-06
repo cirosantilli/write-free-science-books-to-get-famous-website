@@ -58,6 +58,16 @@ Another problem this would solve: multiple site split silliness: <http://meta.st
 
 ## Extra problems
 
+### Tag duplicates
+
+How to mark tags `java` and `Java` as being duplicates without moderators?
+
+Possible solution: everyone can mark tags as duplicate.
+
+Once you mark tags as duplicate, if you search for one, you will see both.
+
+Then we need some algorithms that fuzilly joins all subjects that many people said are the same. 
+
 ### Original research vs explanations
 
 How to determine if something is "original research" or not?
@@ -102,14 +112,6 @@ Such relations make per-user score of other users / posts even more important.
 Rate how much one user likes other users based on his actions.
 
 E.g.: someone who only upvotes C questions will give score 0 for someone with only Java questions.
-
-### Tag duplicates
-
-How to mark tags `java` and `Java` as being duplicates without moderators?
-
-Possible solution: everyone can mark tags as duplicate.
-
-Once you mark tags as duplicate, if you search for one, you will see both.
 
 ### Pull request disagreements
 
