@@ -52,6 +52,8 @@ Optional but very desirable requirements:
 
     This would counter voting fraud, e.g. of close groups of friends which upvote each other a lot.
 
+-   people can post articles, not just questions. A question is just a topic definition for an article. 
+
 Another problem this would solve: multiple site split silliness: <http://meta.stackoverflow.com/questions/271989/does-it-pay-to-spin-off-sites> Since there is no human moderation, only algorithms, splitting websites makes no sense.
 
 ## Extra problems
