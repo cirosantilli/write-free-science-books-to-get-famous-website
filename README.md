@@ -180,6 +180,7 @@ Implementations:
 -   https://github.com/dcadenas/rankable_graph Ruby
 -   https://github.com/dcadenas/pagerank/ Go, port of rankable_graph
 -   https://github.com/frankmcsherry/pagerank
+-   https://en.wikipedia.org/wiki/EigenTrust
 
 Mathematical problem: make a stochastic matrix graph where each entry equals:
 
