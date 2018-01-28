@@ -66,7 +66,9 @@ Possible solution: everyone can mark tags as duplicate.
 
 Once you mark tags as duplicate, if you search for one, you will see both.
 
-Then we need some algorithms that fuzilly joins all subjects that many people said are the same. 
+Then we need some algorithms that fuzilly joins all subjects that many people said are the same.
+
+This is one of Quora's focus: <https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs>
 
 ### Original research vs explanations
 
