@@ -32,7 +32,7 @@ Consider a [Stack-Overflow]()-like Q&A website:
 
 But Stack Overflow's reputation system sucks because:
 
-- it the living ultimate god of `C++` upvotes you, you get `10` reputation
+- if the living ultimate god of `C++` upvotes you, you get `10` reputation
 - if the first-day newb of `Java` upvotes you, you also get `10` reputation
 
 We want to improve Stack Overflow's simplistic linear reputation system to determine who is the user who knows the most about a given tag.
