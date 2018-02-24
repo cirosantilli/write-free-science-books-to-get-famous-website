@@ -11,11 +11,15 @@
 
 Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
-Desired society impact: crush the current grossly inefficient educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
-
 toc::[]
 
+== Desired society impact
+
+Crush the current grossly inefficient educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
+
 This is just a wacky project idea right now.
+
+== What websites we want to replace
 
 Method: a crash between:
 
@@ -272,6 +276,13 @@ We could be able to deduce that `animal` includes `dog`, is a lot of articles ta
 
 == Business model
 
+=== Funding
+
+Who might seed fund this:
+
+* https://elifesciences.org/labs by eLife open journal not for profit. Cambridge UK based.
+* https://www.digital-science.com/investment/catalyst-grant/ by Shuttleworth foundation.
+
 === Consulting
 
 Start with consulting for universities to get some cash flowing.
@@ -291,22 +302,17 @@ TODO: which domain of knowledge should we go for? The more precise the better.
 
 === Knowledge market
 
-If enough people use it, we can let people sell courses through us, to become the YouTube of courses.
+If enough people use it, we can let people sell content through us, to become the YouTube of courses.
 
 Teachers have the incentive of making open source to get more students.
 
 Students pay when they want help to learn something.
 
-=== Who to propose this to
-
-https://catalogue.polytechnique.fr/cours.php?id=2913
-
-http://psc.polytechnique.fr/
-
 === Ads
 
-Possibly shared with top content producers, like Tsu.
+Don't like this very much, but if it's the only way...
 
-Plus a paid option to opt out of ads.
+Then:
 
-But this is what YouTube does with videos, and it only pays for a ton of views...
+* like YouTube, pay creators proportionally to views / metrics
+* paid subscription to remove ads from site
