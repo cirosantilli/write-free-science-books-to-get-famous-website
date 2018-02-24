@@ -81,11 +81,14 @@ To consider tags without weight, in addition:
 
 We do not know exactly what the algorithm, but we believe that the PageRank analogy is valid.
 
-=== Newer votes are worth more
+=== Newer is better
 
-On Stack Overflow for example, the post with most upvotes goes gets the highest ranking, no matter how old it is or when the votes were made.
+On Stack Overflow for example:
 
+* the post with most upvotes goes gets the highest ranking, no matter how old it is or when the votes were made.
++
 This means that very old posts, which gained a lot of upvotes, almost never leave the top, even if newer better posts come along.
+* if two users with the same reputation 
 
 We must include in our post score and user reputation a time factor, so that recent votes count more than old votes.
 
@@ -121,26 +124,6 @@ Then we need some algorithms that fuzzily joins all subjects that many people sa
 
 This is one of Quora's focus: https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs
 
-== Further features
-
-The following non-algorithmic features will also be present.
-
-===
-
-* users can never delete their content. This way, links will never break.
-
-== Secondary algorithms
-
-These are further algorithms that would also be worth investigating, but which are not the most critical ones in our opinion.
-
-=== Vote ring prevention
-
-This would counter voting fraud, e.g. of close groups of friends which upvote each other a lot.
-
-Malicious users, or innocent users from close-knit research communities, might end up voting each other a lot.
-
-We would like to have an algorithm such that every time you upvote the same given person, it has less positive impact on his reputation for that tag than the previous upvote.
-
 === What is the best revision of a given content?
 
 The website will have GitHub-like pull requests to content.
@@ -160,6 +143,63 @@ Possible solution:
 
 * next to each answer, have a list of forks
 * everyone can mark an answer as the "best version" or just upvote the pull requests
+
+== Further features
+
+The following less-algorithmic features must also be present.
+
+=== Post trees
+
+It must be possible for users to create trees of posts.
+
+When a teacher wants to create a course for example, he can just link to existing material to the course material tree.
+
+And only if something is missing, then he may write it.
+
+Pull requests can be made for additions to the post tree, just as for regular content.
+
+=== Tags and post bijection
+
+It would be awesome if all tags mapped to posts.
+
+This way, a posts would serve as the description of a tag.
+
+For example, the tag `mathematics` should map to a set of posts `mathematics`, which explains what Mathematics is, and contains a tree of children nodes which are sub-subjects, e.g. `algebra`, `calculus`, etc.
+
+Furthermore, when an user puts the `algebra` post as a child of `mathematics`, this is equivalent to saying "tag my `Algebra` article with the `mathematics` tag".
+
+=== Comments
+
+Comments and pull requests are analogous, and stored separately from regular nodes as `mathematics`.
+
+Comments and pull requests are more like "meta posts, with optional titles".
+
+Comments are like GitHub issues, which are very similar to pull requests.
+
+Comments are tied specifically to a given post.
+
+E.g., if user 1 and user 2 make their own page entitled `Mathematics` and `Algebra`, the `Algebra` page of both users could often be a child of the `Mathematics` page of either user.
+
+Comments on the other hand, are tied to a single `Mathematics` page of a single user.
+
+Forks however should inherit all comments and pull requests.
+
+=== Secondary further features
+
+* users can never delete their content. This way, links will never break.
+* the amount of data (characters in posts, number of tags, etc.) each user can create may be capped to limit server usage. Make this limit proportional to user reputation
+
+== Secondary algorithms
+
+These are further algorithms that would also be worth investigating, but which are not the most critical ones in our opinion.
+
+=== Vote ring prevention
+
+This would counter voting fraud, e.g. of close groups of friends which upvote each other a lot.
+
+Malicious users, or innocent users from close-knit research communities, might end up voting each other a lot.
+
+We would like to have an algorithm such that every time you upvote the same given person, it has less positive impact on his reputation for that tag than the previous upvote.
 
 === Original research vs explanations
 
