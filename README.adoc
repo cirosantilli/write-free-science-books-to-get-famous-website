@@ -17,7 +17,11 @@ toc::[]
 
 Crush the current grossly inefficient educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
 
-This is just a wacky project idea right now.
+== Prototypes
+
+Very early stage:
+
+* https://github.com/cirosantilli/free-books-django-raw
 
 == What websites we want to replace
 
@@ -27,15 +31,6 @@ Method: a crash between:
 * GitHub-like pull requests. Not anyone can edit anything like Wikipedia madness, but you _can_ make your own copy (fork), and a precise a suggestion.
 * Wikipedia. Imagine if you could link up-votable application examples to the useless page of a Mathematics theorem, and add you own completely different versions of articles explaining them in your own perfect manner.
 * page rank-like algorithm for user reputation, including a per-tag reputation (which user knows more about mathematics?) and content recommendation (what are the best articles about a given subject?)
-
-Very early stage prototype(s):
-
-* https://github.com/cirosantilli/free-books-django-raw
-
-Why you can't make money with this website right now:
-
-* society has huge inertia
-* Stack Overflow is good enough (?), even though it could be so much better
 
 == Intro
 
@@ -272,6 +267,8 @@ We could be able to deduce that `animal` includes `dog`, is a lot of articles ta
 
 == Datasets
 
+A hard part in testing the algorithms is that it is difficult to obtain data in the first place.
+
 * https://en.wikipedia.org/wiki/DMOZ http://www.dmoz.org/ http://c2.com/cgi/wiki?OpenDirectoryProject
 
 == Business model
@@ -293,6 +290,8 @@ At the same time, develop the website, and use the generated content to bootstra
 
 Choose a domain of knowledge, generate perfect courses for it, and find all teachers of the domain in the world who are teaching that and help them out.
 
+Ensure that the content can be downloaded as text, so that if this project fails, we can just upload everything to GitHub, and not all is lost.
+
 Then expand out to other domains.
 
 TODO: which domain of knowledge should we go for? The more precise the better.
@@ -312,7 +311,16 @@ Students pay when they want help to learn something.
 
 Don't like this very much, but if it's the only way...
 
+Focus on job ads like Stack Overflow.
+
 Then:
 
 * like YouTube, pay creators proportionally to views / metrics
 * paid subscription to remove ads from site
+
+=== Business model difficulties
+
+* education has huge inertia:
+** university teachers are only ranked for their innovative research, and most don't care or are not truly good explainers / educational content generators.
+** pre university: only cares about making students pass the useless university entry exams, instead of doing something truly valuable for society
+* Stack Overflow is good enough (?), even though it could be so much better
