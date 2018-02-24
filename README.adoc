@@ -9,92 +9,92 @@
 :toclevels: 6
 :toc-title:
 
-Dream: live in a world where you can learn mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
+Mission: live in a world where you can learn mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
 toc::[]
 
-== Desired society impact
+== Desired social impact
 
-Crush the current grossly inefficient educational system, replace today's students + teachers + researchers with unified "online content creators / consumers". Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
+Crush the current grossly inefficient educational system, replace today's students + teachers + researchers with unified "online content creators / consumers".
 
-== Prototypes
+Gamify them, and pay the best creators so they can work it full time, until some company hires for more them since they are so provenly good.
 
-Very early stage:
+Destroy useless exams, the only metrics of society are either:
 
-* https://github.com/cirosantilli/free-books-django-raw
+* how much money you make
+* how high is your educational content creator reputation score
 
-== What websites we want to replace
+Reduce the entry barrier to education, like Uber has done for taxis.
 
-Method: a crash between:
+== Key algorithms
 
-* Stack Overflow gamification
-* GitHub-like pull requests. Not anyone can edit anything like Wikipedia madness, but you _can_ make your own copy (fork), and a precise a suggestion.
-* Wikipedia. Imagine if you could link up-votable application examples to the useless page of a Mathematics theorem, and add you own completely different versions of articles explaining them in your own perfect manner.
-* page rank-like algorithm for user reputation, including a per-tag reputation (which user knows more about mathematics?) and content recommendation (what are the best articles about a given subject?)
+The key innovation of the website is to use the following algorithms to rank users and posts, while avoiding concept of "elected human moderators" at all costs.
 
-== Intro
+=== PageRank with tags
 
-Consider a link:[Stack-Overflow]-like Q&A website:
+This is the central and most important algorithm of the website.
 
-* there are questions and answers
-* questions have tags, e.g. programming languages like `C`, `C++`, `Java`
-* users have a reputation measure. If you upvote someone's question or answer, his reputation increases. You need 15 reputation to upvote someone.
+The website will look a lot like a hosted blog like https://wordpress.org or link:https://medium.com/[], but with the following additions:
 
-But Stack Overflow's reputation system sucks because:
-
-* if the living ultimate god of `C++` upvotes you, you get `10` reputation
-* if the first-day newb of `Java` upvotes you, you also get `10` reputation
-
-We want to improve Stack Overflow's simplistic linear reputation system to determine who is the user who knows the most about a given tag.
-
-Fundamental requirement: a Google PageRank-like algorithm (Eigenvalue based) such that:
-
-* everyone has one reputation per tag
-* if someone with high rep on a given tag upvotes you, you get a lot of reputation on that tag. More than you would get from someone with low reputation on that tag.
-
-Optional but very desirable requirements:
-
-* users can upvote tags on a given question to say: "I agree that this question deserves this tag".
+* users can upvote or downvote articles
+* any user can create any tag or upvote and downvote tags on any article, even if the user is not the author. Upvoting a tag on an article means that "I think that this tag describes this article well"
 +
-The vote of users with higher rep on the tag should count more.
-* each time you upvote the same given person, it has less positive impact on his reputation for that tag.
-+
-This would counter voting fraud, e.g. of close groups of friends which upvote each other a lot.
-* people can post articles, not just questions. A question is just a topic definition for an article.
+A tag could be something like: `C++` to indicate that "this article is about the C++ language".
 
-Another problem this would solve: multiple site split silliness: http://meta.stackoverflow.com/questions/271989/does-it-pay-to-spin-off-sites Since there is no human moderation, only algorithms, splitting websites makes no sense.
+From these inputs, we want to answer, using algorithms, the following questions:
 
-== Extra problems
+* what is the best content for a given tag. This allows learners to find more interesting content.
+* which user knows the most about a given tag, or in other words, has the most reputation for a given tag. This motivates users to contribute to become famous and get better jobs.
 
-=== Tag duplicates
+This is the central algorithmic innovation that we want to implement.
 
-How to mark tags `java` and `Java` as being duplicates without moderators?
+If an user has high reputation for a tag, say `C++`, then:
 
-Possible solution: everyone can mark tags as duplicate.
+* if the user upvotes a post tagged with `C++`, the upvote has more weight than if the user upvotes a post tagged with `Java`. By "has more weight" we mean:
+** the post gets a better ranking in the tag
+** the author of the post gets more reputation in the tag
+* if the user upvotes or downvotes a `C++` tag on any post, that tag vote has more weight than if the user upvotes or downvotes a `Java` tag for a post
 
-Once you mark tags as duplicate, if you search for one, you will see both.
+Just like for PageRank, this leads to circular chains of influence, e.g.:
 
-Then we need some algorithms that fuzilly joins all subjects that many people said are the same.
+* user A upvotes a post for user B
+* user B upvotes a post for user C
+* user C upvotes a post for user A
 
-This is one of Quora's focus: https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs
+And then a way to solve this problem is to model it to an Eigenvalue problem.
 
-=== Original research vs explanations
+==== PageRank with tags sketch
 
-How to determine if something is "original research" or not?
+We do not know exactly what the algorithm, but we believe that the PageRank analogy is valid. The algorithm could look something like this.
 
-E.g.: a genius discovers something and publishes it really badly explained.
+If we forget tags to simplify, we could do a bipartite authors / posts graph:
 
-Someone less intelligent comes, explains it better, and gets widely read.
+* each post and user is node in one side of the bipartite graph
+* if userN upvotes postN, add a link from userN to postN
+* link postN to it's author userN
 
-Or someone who just posts a bunch of links to good sources.
+To consider tags without weight, in addition:
 
-=== Post age
+* each user is represented by one node per tag userN-tagM
+* if userN upvotes postN, add a link from userN-tagM to postN if postN is tagged with tagM
+* link from postN to each userN-tagM where userN is the autor and tagM a tag of the post
 
-Post metrics on Stack Overflow also suck: the post with most upvotes goes up and that is it.
+We do not know exactly what the algorithm, but we believe that the PageRank analogy is valid.
 
-It would be cool to give a boost to recent posts that got lots of upvotes.
+=== Newer votes are worth more
 
-They can't beat the older ones in total upvotes, but the upvote rate is a strong indicator of quality.
+On Stack Overflow for example, the post with most upvotes goes gets the highest ranking, no matter how old it is or when the votes were made.
+
+This means that very old posts, which gained a lot of upvotes, almost never leave the top, even if newer better posts come along.
+
+We must include in our post score and user reputation a time factor, so that recent votes count more than old votes.
+
+It would be even more awesome to have a parameter that controls how much time matters, and then this would allow us to cover a wide variety of post types:
+
+* what we call "news" are simply posts where time matters a lot
+* what we call "theoretical reference books" are just posts where time matters less
+
+The Reddit ranking algorithm does this reasonably well: https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9
 
 Even better, would be to consider how many times users view EACH post in a single page, with some JS black magic. With that, we can just use the Wilso score interval https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval as mentioned at: https://www.evanmiller.org/how-not-to-sort-by-average-rating.html
 
@@ -108,6 +108,68 @@ SO threads:
 Non SO literature:
 
 * https://www.quora.com/When-Google-indexes-a-page-does-it-consider-that-pages-creation-date-when-it-comes-to-PR-computation
+
+=== Tag duplicates
+
+How to mark tags `java` and `Java` as being duplicates without moderators?
+
+Possible solution: everyone can mark tags as duplicate.
+
+Why people would waste time doing that? Because once you mark tags as duplicate, if you search for one, you will see both, so you can waste less time searching.
+
+Then we need some algorithms that fuzzily joins all subjects that many people said are the same.
+
+This is one of Quora's focus: https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs
+
+== Further features
+
+The following non-algorithmic features will also be present.
+
+===
+
+* users can never delete their content. This way, links will never break.
+
+== Secondary algorithms
+
+These are further algorithms that would also be worth investigating, but which are not the most critical ones in our opinion.
+
+=== Vote ring prevention
+
+This would counter voting fraud, e.g. of close groups of friends which upvote each other a lot.
+
+Malicious users, or innocent users from close-knit research communities, might end up voting each other a lot.
+
+We would like to have an algorithm such that every time you upvote the same given person, it has less positive impact on his reputation for that tag than the previous upvote.
+
+=== What is the best revision of a given content?
+
+The website will have GitHub-like pull requests to content.
+
+No one can ever edit your posts unless you explicitly allow them.
+
+This prevents edit wars which can only be resolved with moderation.
+
+But you can make your own copy (fork) according to the required website content license (CC-BY-SA), and a make precise a suggestion, which can be merged with a single click (aka GitHub pull requests).
+
+But then What happens if:
+
+* the writer of an answer dies, and someone makes a great pull request to his answer with 1M upvotes?
+* 50% of users agree with a pull request, 50% don't?
+
+Possible solution:
+
+* next to each answer, have a list of forks
+* everyone can mark an answer as the "best version" or just upvote the pull requests
+
+=== Original research vs explanations
+
+How to determine if something is "original research" or not?
+
+E.g.: a genius discovers something and publishes it really badly explained.
+
+Someone less intelligent comes, explains it better, and gets widely read.
+
+Or someone who just posts a bunch of links to good sources.
 
 === User trusts user
 
@@ -123,23 +185,137 @@ Rate how much one user likes other users based on his actions.
 
 E.g.: someone who only upvotes C questions will give score 0 for someone with only Java questions.
 
-=== Pull request disagreements
+=== Tag hierarchy extraction
 
-What happens if:
+We could be able to deduce that `animal` includes `dog`, is a lot of articles tagged as
 
-* the writer of an answer dies, and someone makes a great pull request to his answer with 1M upvotes?
-* 50% of users agree with a pull request, 50% don't?
+* Tibeli 2013 http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084133
 
-Possible solution:
+== Prototypes
 
-* next to each answer, have a list of forks
-* everyone can mark an answer as the "best version" or just upvote the pull requests
+Very early stage:
 
-== Testing: a difficulty
+* https://github.com/cirosantilli/free-books-django-raw
 
-While it is possible to download all public data from Stack overflow in dumps, this algorithms would need private information like who upvoted what.
+=== Test datasets
 
-So generating meaningful test data would be a problem in itself.
+A hard part in testing the algorithms is that it is difficult to obtain data in the first place.
+
+Besides the possibility of bootstrapping data ourselves by <<consulting>>, these are some existing datasets that could be used:
+
+* https://en.wikipedia.org/wiki/DMOZ http://www.dmoz.org/ http://c2.com/cgi/wiki?OpenDirectoryProject
+
+== Websites we want to replace
+
+Some laugh at our ambition. So do we sometimes.
+
+=== Blogs
+
+WordPress, Medium, Facebook, Twitter, Blogger, etc., etc.:
+
+* no tag convergence across blogs. Each blog is a moderated castle. So who is the best user for a given tag, or the best content for a given tag, across the entire website?
+
+===  Wikipedia
+
+* Scope too limited, and politics defined.
++
+Imagine if you could link up-votable application examples to the useless page of a Mathematics theorem.
++
+Imagine if you could create multiple different versions of articles explaining them in your own perfect manner to a specific audience, instead of having this encyclopedic blob.
+
+=== Stack Overflow
+
+*
++
+--
+** if the living ultimate god of `C++` upvotes you, you get `10` reputation
+** if the first-day newb of `Java` upvotes you, you also get `10` reputation
+--
+Which makes no sense.
+* Only very specific posts are accepted on Stack Overflow, and anything else gets downvoted, criticized and deleted.
++
+This greatly discourages new users, who might still have added value to the project.
++
+On our website, anyone can post anything. No one can delete your content, no matter their reputation.
++
+Then we use algorithms to rank content.
+* Is politics based, rather than algorithmic, and thus more imperfect, e.g.:
+** each post can have up to 5 tags. If people disagree, politically elected moderators or site employees decide. 
+* Edit wars, just like Wikipedia, which require moderator intervention to solve.
+* Randomly split between sites like Stack Overflow vs Super User, with separate user reputations, but huge overlaps, and many questions that appears as dupes on both and never get merged.
+
+== Business model
+
+=== Funding
+
+Who might seed fund this:
+
+* https://elifesciences.org/labs by eLife open journal not for profit. Cambridge UK based.
+* https://www.digital-science.com/investment/catalyst-grant/ by Shuttleworth foundation.
+
+=== Consulting
+
+Start with consulting for universities to get some cash flowing.
+
+Help teachers create perfect courses.
+
+At the same time, develop the website, and use the generated content to bootstrap it.
+
+Choose a domain of knowledge, generate perfect courses for it, and find all teachers of the domain in the world who are teaching that and help them out.
+
+Ensure that the content can be downloaded as text, so that if this project fails, we can just upload everything to GitHub, and not all is lost.
+
+Then expand out to other domains.
+
+TODO: which domain of knowledge should we go for? The more precise the better.
+
+* maths is perfect because it "never" changes. But does not make money.
+* computer science might be good, e.g. machine learning.
+
+=== Knowledge market
+
+If enough people use it, we can let people sell content through us, to become the YouTube of courses.
+
+Teachers have the incentive of making open source to get more students.
+
+Students pay when they want help to learn something.
+
+We take a cut of the transactions.
+
+However this goes a bit against our "open content" ideal.
+
+One solution would be to only allow content to be private for a limited amount of time. Then users would be selling early access to the content. But all content would ultimately come back to the public site.
+
+=== Ads
+
+Don't like this very much, but if it's the only way...
+
+Focus on job ads like Stack Overflow.
+
+Then:
+
+* like YouTube, pay creators proportionally to views / metrics
+* paid subscription to remove ads from site
+
+=== Business model difficulties
+
+* education has huge inertia:
+** university teachers are only ranked for their innovative research, and most don't care or are not truly good explainers / educational content generators.
+** pre university: only cares about making students pass the useless university entry exams, instead of doing something truly valuable for society
+* Stack Overflow is good enough (?), even though it could be so much better
+* Google PageRank worked because they could crawl the entire web and get a large dataset without everyone having to go to them in the first place.
++
+PageRank does not work for us however, as we need to know who is the author of each post. What to do about pages where the posts of multiple people show at the same time?
++
+If only there was a standardized metadata on HTML that said who is the author of each post.
++
+But even then, how to standardize the tagging? Who would store that data?
+
+== TODO
+
+I have to organize this part better.
+
+:leveloffset: +2
 
 == Research
 
@@ -238,89 +414,9 @@ PageRank variants:
 ** http://drops.dagstuhl.de/volltexte/2007/1072/pdf/07071.VignaSebastiano.Paper.1072.pdf
 ** Seems to use an arbitrary previously fixed number of topics?
 
-== Algorithm possibilities
-
-The most obvious possibility is to reduce the problem to pagerank.
-
-If we forget tags to simplify, we could do a bipartite authors / posts graph:
-
-* each post and user is node in one side of the bipartite graph
-* if userN upvotes postN, add a link from userN to postN
-* link postN to it's author userN
-
-To consider tags without weight, in addition:
-
-* each user is represented by one node per tag userN-tagM
-* if userN upvotes postN, add a link from userN-tagM to postN if postN is tagged with tagM
-* link from postN to each userN-tagM where userN is the autor and tagM a tag of the post
-
-== Tag hierarchy extraction
-
-We could be able to deduce that `animal` includes `dog`, is a lot of articles tagged as
-
-* Tibeli 2013 http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084133
-
 == Websites with tag votes by any user
 
 * Flickr 2016 only photo author can add tags
 * Delicious TODO down?
 
-== Datasets
-
-A hard part in testing the algorithms is that it is difficult to obtain data in the first place.
-
-* https://en.wikipedia.org/wiki/DMOZ http://www.dmoz.org/ http://c2.com/cgi/wiki?OpenDirectoryProject
-
-== Business model
-
-=== Funding
-
-Who might seed fund this:
-
-* https://elifesciences.org/labs by eLife open journal not for profit. Cambridge UK based.
-* https://www.digital-science.com/investment/catalyst-grant/ by Shuttleworth foundation.
-
-=== Consulting
-
-Start with consulting for universities to get some cash flowing.
-
-Help teachers create perfect courses.
-
-At the same time, develop the website, and use the generated content to bootstrap it.
-
-Choose a domain of knowledge, generate perfect courses for it, and find all teachers of the domain in the world who are teaching that and help them out.
-
-Ensure that the content can be downloaded as text, so that if this project fails, we can just upload everything to GitHub, and not all is lost.
-
-Then expand out to other domains.
-
-TODO: which domain of knowledge should we go for? The more precise the better.
-
-* maths is perfect because it "never" changes. But does not make money.
-* computer science might be good, e.g. machine learning.
-
-=== Knowledge market
-
-If enough people use it, we can let people sell content through us, to become the YouTube of courses.
-
-Teachers have the incentive of making open source to get more students.
-
-Students pay when they want help to learn something.
-
-=== Ads
-
-Don't like this very much, but if it's the only way...
-
-Focus on job ads like Stack Overflow.
-
-Then:
-
-* like YouTube, pay creators proportionally to views / metrics
-* paid subscription to remove ads from site
-
-=== Business model difficulties
-
-* education has huge inertia:
-** university teachers are only ranked for their innovative research, and most don't care or are not truly good explainers / educational content generators.
-** pre university: only cares about making students pass the useless university entry exams, instead of doing something truly valuable for society
-* Stack Overflow is good enough (?), even though it could be so much better
+:leveloffset: -2
