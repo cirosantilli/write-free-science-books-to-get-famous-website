@@ -350,6 +350,14 @@ PageRank does not work for us however, as we need to know who is the author of e
 If only there was a standardized metadata on HTML that said who is the author of each post.
 +
 But even then, how to standardize the tagging? Who would store that data?
+* most of the information that is actually useful in the world if not open, but rather closed behind patents and industrial secrets.
++
+And you wouldn't be able to use or advance that information without the expensive associated machinery.
++
+Working on recreating this information in an open way, and putting it on GitHub, may be more useful than this project.
+* in small fields of highly advanced research, the entry barrier is already huge, and only full time researchers can make any meaningful contribution, and we already know who the best are at all times.
++
+The entry barrier of a journal is tiny compared to working full time on a given subject.
 
 == TODO
 
