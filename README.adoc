@@ -459,4 +459,8 @@ PageRank variants:
 * Flickr 2016 only photo author can add tags
 * Delicious TODO down?
 
+== Misc websites
+
+* link:https://arxiv.org[]: you need to get an endorsement by someone who has a least three published papers on a given magic category. This then gives you free DOIs, which makes your stuff visible by third party rankers like Google scholar. PDF uploads. Meh.
+
 :leveloffset: -2
