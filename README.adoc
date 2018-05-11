@@ -237,13 +237,25 @@ Very early stage:
 
 * https://github.com/cirosantilli/free-books-django-raw
 
-=== Test datasets
+== datasets
 
 A hard part in testing the algorithms is that it is difficult to obtain data in the first place.
 
 Besides the possibility of bootstrapping data ourselves by <<consulting>>, these are some existing datasets that could be used:
 
 * https://en.wikipedia.org/wiki/DMOZ http://www.dmoz.org/ http://c2.com/cgi/wiki?OpenDirectoryProject
+
+=== Crossref
+
+https://support.crossref.org/hc/en-us/articles/213126066-Datasets-database-
+
+Likely largest database of DOI metadata. They also issue DOIs.
+
+Data comes from multiple journals, and each one has a different metadata set. Some don't even have cross references, most have authors by name only instead of ORCID.
+
+You have to belong to a journal to be listed there at all.
+
+They host the metadata only.
 
 == Websites we want to replace
 
@@ -265,12 +277,13 @@ Imagine if you could create multiple different versions of articles explaining t
 
 === Stack Overflow
 
-*
+* Currently:
 +
 --
 ** if the living ultimate god of `C++` upvotes you, you get `10` reputation
 ** if the first-day newb of `Java` upvotes you, you also get `10` reputation
 --
++
 Which makes no sense.
 * Only very specific posts are accepted on Stack Overflow, and anything else gets downvoted, criticized and deleted.
 +
@@ -292,6 +305,13 @@ Who might seed fund this:
 
 * https://elifesciences.org/labs by eLife open journal not for profit. Cambridge UK based.
 * https://www.digital-science.com/investment/catalyst-grant/ by Shuttleworth foundation.
+
+==== Open access cummunity
+
+They don't really have money, but they could help :-)
+
+* https://en.wikipedia.org/wiki/Open_Knowledge_International , https://en.wikipedia.org/wiki/Panton_Principles
+* https://en.wikipedia.org/wiki/PLOS
 
 === Consulting
 
@@ -469,6 +489,29 @@ PageRank variants:
 
 == Misc websites
 
-* link:https://arxiv.org[]: you need to get an endorsement by someone who has a least three published papers on a given magic category. This then gives you free DOIs, which makes your stuff visible by third party rankers like Google scholar. PDF uploads. Meh.
+=== Get free DOIs
 
-:leveloffset: -2
+DOIs are identifiers for articicles, and what current research uses an identifiers.
+
+https://academia.stackexchange.com/questions/81583/are-there-free-doi-generation-services
+
+link:https://arxiv.org[]: you need to get an endorsement by someone who has a least three published papers on a given magic category. This then gives you free DOIs, which makes your stuff visible by third party rankers like Google scholar. PDF uploads. Meh.
+
+==== Figshare
+
+https://figshare.com 2018
+
+You can upload a bit of description text which change, but the files are unchangeable.
+
+Forces you to select from magic tag / category list.
+
+DOIs of type: https://doi.org/10.6084/m9.figshare.6248786.v1 and those links redirect you to the content
+
+Magic urls have a version for multiple versions of same content, but this is just a convention done by figshare.
+
+TODO: ORCID login?
+
+==== Zenodo
+
+https://zenodo.org/
+
