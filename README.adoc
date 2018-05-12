@@ -158,6 +158,36 @@ And only if something is missing, then he may write it.
 
 Pull requests can be made for additions to the post tree, just as for regular content.
 
+The best way to do such tree, would be something along:
+
+* WYSIWYG text editor
+* user can mark some text as a heading
+* whenever a heading a heading is created:
+** the user specifies the heading level
+** a database entry is created, that contains the text of the child, child entries and metadata: upvotes and tags
+
+To do this we will need to find a highly extensible JavaScript WYSIWYG text editor.
+
+https://github.com/JefMari/awesome-wysiwyg
+
+==== Quill
+
+https://github.com/quilljs/quill/
+
+Has out of box:
+
+* maths formulae
+* headers
+* links
+
+TODO:
+
+* https://github.com/quilljs/quill/issues/1681 How to create unique id on each block?
+
+==== TinyMCE
+
+https://github.com/tinymce/tinymce
+
 === Tags and post bijection
 
 It would be awesome if all tags mapped to posts.
@@ -257,6 +287,20 @@ You have to belong to a journal to be listed there at all.
 
 They host the metadata only.
 
+=== PubMed
+
+Smaller than <<crossref>> since only for bio related stuff, but despite that does not even seem to be much more uniform anyways...
+
+Download data from: https://www.nlm.nih.gov/databases/download/pubmed_medline.html
+
+TODO how are references encoded? Example.
+
+Most authors don't have ORCID, just string name. ORCIDs are in an optional field.
+
+Most journals don't have keywords, but at least those that do have keywords nicely split in the XML.
+
+On the other hand, has a bunch of more bio specific fields such as which chemicals the paper mentions... lol, they can't standardize the most important data, but they can add stuff like this.
+
 == Websites we want to replace
 
 Some laugh at our ambition. So do we sometimes.
@@ -267,7 +311,7 @@ WordPress, Medium, Facebook, Twitter, Blogger, etc., etc.:
 
 * no tag convergence across blogs. Each blog is a moderated castle. So who is the best user for a given tag, or the best content for a given tag, across the entire website?
 
-===  Wikipedia
+=== Wikipedia
 
 * Scope too limited, and politics defined.
 +
@@ -297,6 +341,20 @@ Then we use algorithms to rank content.
 * Edit wars, just like Wikipedia, which require moderator intervention to solve.
 * Randomly split between sites like Stack Overflow vs Super User, with separate user reputations, but huge overlaps, and many questions that appears as dupes on both and never get merged.
 
+=== GitHub
+
+If I were to write a book about Quantum mechanics today, I'd likely upload an asciidoc to GitHub.
+
+But there is one major problem with that: the entry barrier for new contributors is very large.
+
+If they submit a pull request, I have to review it, otherwise, no one will ever see it.
+
+Out amazing website would allow the reader to add his own example of, say, The Uncertainty Principle, whenever he wants, under the appropriate section.
+
+Then, people who want to learn more about it, would click on the "defined tag" by the article, and our amazing analytics would point them to the best such articles.
+
+<<pubmed>> data represents this concept through the `MajorTopicYN` field!
+
 == Business model
 
 === Funding
@@ -306,7 +364,7 @@ Who might seed fund this:
 * https://elifesciences.org/labs by eLife open journal not for profit. Cambridge UK based.
 * https://www.digital-science.com/investment/catalyst-grant/ by Shuttleworth foundation.
 
-==== Open access cummunity
+==== Open access community
 
 They don't really have money, but they could help :-)
 
