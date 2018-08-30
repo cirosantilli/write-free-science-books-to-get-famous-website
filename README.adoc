@@ -573,3 +573,9 @@ TODO: ORCID login?
 
 https://zenodo.org/
 
+== Cool people and movements
+
+* Lawrence Angrave
+** Student-Owned Learning
+** https://github.com/angrave/SystemProgramming/wiki
+** https://mediaspace.illinois.edu/media/ClassTranscribe+-+Transforming+Lecture+Videos+into+Student-Driven,+Student-Owned+Learning/1_1pz1lh6y/28391611
