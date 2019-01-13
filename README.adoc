@@ -333,7 +333,7 @@ Which makes no sense.
 +
 This greatly discourages new users, who might still have added value to the project.
 +
-On our website, anyone can post anything. No one can delete your content, no matter their reputation.
+On our website, anyone can post anything that is legal in a given country. No one can delete your content if it is legal, no matter their reputation, only downvote it.
 +
 Then we use algorithms to rank content.
 * Is politics based, rather than algorithmic, and thus more imperfect, e.g.:
@@ -370,6 +370,9 @@ They don't really have money, but they could help :-)
 
 * https://en.wikipedia.org/wiki/Open_Knowledge_International , https://en.wikipedia.org/wiki/Panton_Principles
 * https://en.wikipedia.org/wiki/PLOS
+* https://www.chanzuckerberg.com/ Zuck has already invested in education previously:
+** https://www.forbes.com/sites/kathleenchaykowski/2018/02/14/zuckerberg-invests-in-on-demand-education-site-varsity-tutors-in-50-million-fundraise/#1c9b6b385dab
+** http://uk.businessinsider.com/mark-zuckerberg-schools-education-newark-mayor-ras-baraka-cory-booker-2018-5
 
 === Consulting
 
