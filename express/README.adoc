@@ -1,0 +1,14 @@
+Getting started:
+
+....
+npm install
+npm start
+xdg-open http://localhost:3000
+....
+
+Initial template created with `express-generator@4.16.0`:
+
+....
+npm install -g express-generator@4
+express express
+....

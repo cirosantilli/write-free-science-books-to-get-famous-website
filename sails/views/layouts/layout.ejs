@@ -48,25 +48,17 @@
       <header id="page-header" class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between">
         <a class="navbar-brand mr-0" href="/"><img class="logo" alt="NEW_APP_NAME logo" src="/images/logo.png"/></a>
         <div class="navbar-nav flex-row">
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/users">Users</a>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/faq">FAQ</a>
           <!-- LOGGED-IN NAVIGATION -->
           <% if(me) { %>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Help</a>
-          <!-- Only in desktop nav -->
-          <div class="nav-item dropdown d-none d-sm-block">
-            <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-            <div class="dropdown-menu account-menu" aria-labelledby="header-account-menu-link">
-              <a class="dropdown-item" href="/account">Settings</a>
-              <a class="dropdown-item" href="/logout">Sign out</a>
-            </div>
-          </div>
-          <!-- Only in mobile nav -->
-          <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/account">Account Settings</a>
-          <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/logout">Sign out</a>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/account"><%= me.emailAddress %></a>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2rmr-md-0" href="/logout">Sign out</a>
           <% } else { %>
           <!-- LOGGED-OUT NAVIGATION -->
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/faq">FAQ</a>
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login">Log in</a>
           <!-- Only in desktop nav -->
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login">Log in</a>
           <div class="form-inline d-none ml-2 d-md-block" >
             <a class="btn btn-outline-info" href="/signup">Sign up</a>
           </div>

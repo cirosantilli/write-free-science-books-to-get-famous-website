@@ -1,0 +1,4 @@
+Generated with:
+
+* generator-keystone@0.5.1
+* yo@2.0.5

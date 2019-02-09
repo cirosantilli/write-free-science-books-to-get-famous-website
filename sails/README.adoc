@@ -3,3 +3,9 @@ Initially generated with:
     sail new sails
 
 using Sails v1.1.0 and then choose "Web app" option.
+
+Run with:
+
+    npm install
+    sails lift
+    xdg-open http://localhost:1337

@@ -1,0 +1,10 @@
+Crated with:
+
+    meteor create meteor --react
+
+with Meteor 1.8.0.2.
+
+Start with:
+
+    meteor
+    xdg-open http://localhost:3000
