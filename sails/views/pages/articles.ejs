@@ -1,0 +1,17 @@
+<div id="faq">
+  <div class="container">
+    <h1>Articles</h1>
+    <a href="/articles/new">New article</a>
+    <template v-if="articles.lenght">
+      <ol>
+        <li v-for="article in articles">
+        {{ article.title }}
+        </li>
+      </ol>
+    </template>
+    <template v-else>
+      <p>There are no articles.</p>
+    </template>
+  </div>
+</div>
+<%- exposeLocalsToBrowser() %>

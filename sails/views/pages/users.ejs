@@ -1,9 +1,16 @@
 <div id="faq">
   <div class="container">
     <h1>Users</h1>
-    <div class="q-and-a">
-      <p>asdf qwer</p>
-    </div>
+    <template v-if="users.lenght">
+      <ol>
+        <li v-for="user in users">
+          {{ user.emailAddress }}
+        </li>
+      </ol>
+    </template>
+    <template v-else>
+      <p>There are no users.</p>
+    </template>
   </div>
 </div>
 <%- exposeLocalsToBrowser() %>
