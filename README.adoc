@@ -214,6 +214,38 @@ Comments on the other hand, are tied to a single `Mathematics` page of a single 
 
 Forks however should inherit all comments and pull requests.
 
+=== Export and local editing
+
+It would be awesome if the website could export and re-import an entire tree as, say, Asciidoctor for the following reasons:
+
+* at the start, the website will be fragile, so users might not trust it fully, and will feel better if they can easily switch to another platform
+* this would allow local editing of text files, which makes many tasks easy, like mass refactoring
+
+The main question then is what to do about header IDs and links.
+
+After the following features are implemented however:
+
+* `data-` attribute passthroughs https://github.com/asciidoctor/asciidoctor/issues/1305
+* `/` on IDs: https://github.com/asciidoctor/asciidoctor/issues/1540
+
+we can just go for:
+
+....
+[[cirosantilli/header-visible-id,data-id=12345678,data-tags=mathematics,physics]]
+== My header
+....
+
+where:
+
+* `cirosantilli/header-visible-id` is the human readable version tha shows on the URL
+* `data-id=12345678` is an unique database ID and associates upvote metadata to the header
+* further `data-` attributes like `data-tags` represent further data added by the user
+
+Then for imports:
+
+* validate that the human readable ID `cirosantilli/` part matches the uploader's username, and that it is unique
+* if a header does not have a `data-id`, it means that the user is creating a new header
+
 === Secondary further features
 
 * users can never delete their content. This way, links will never break.
