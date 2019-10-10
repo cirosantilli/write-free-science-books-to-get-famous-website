@@ -339,9 +339,23 @@ Some laugh at our ambition. So do we sometimes.
 
 === Blogs
 
-WordPress, Medium, Facebook, Twitter, Blogger, etc., etc.:
+WordPress, Medium, Facebook, Twitter, Blogger, tutorials by academics, etc., etc.:
 
 * no tag convergence across blogs. Each blog is a moderated castle. So who is the best user for a given tag, or the best content for a given tag, across the entire website?
+
+The only reasonable free material we have for advanced subjects nowadays are websites written by academics for their courses.
+
+While some of those are awesome, when writing a large content, no one can keep quality high across all sections, there will always be knowledge that you don't have which is enlightening. And Googlers are more often than not interested only in specific sections of your content.
+
+Our website aims to make smaller subjects vertically curated across horizontal single author tutorials.
+
+....
+Author  1 | Author 2  | Author 3
+Subject 1 | Subject 1 | Subject 1
+          | Subject 2 | Subject 2
+Subject 3 |           | Subject 3
+Subject 4 |
+....
 
 === Wikipedia
 

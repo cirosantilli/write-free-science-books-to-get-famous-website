@@ -35,6 +35,7 @@ module.exports.routes = {
 
   'GET /users':              { action: 'users' },
   'GET /articles':           { action: 'articles' },
+  'GET /articles/new':       { action: 'articles/new' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
