@@ -9,7 +9,7 @@
 :toclevels: 6
 :toc-title:
 
-Mission: live in a world where you can learn mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
+Mission: live in a world where you can learn university-level mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
 
 toc::[]
 
@@ -387,6 +387,10 @@ Then we use algorithms to rank content.
 * Edit wars, just like Wikipedia, which require moderator intervention to solve.
 * Randomly split between sites like Stack Overflow vs Super User, with separate user reputations, but huge overlaps, and many questions that appears as dupes on both and never get merged.
 
+Bibliograpy:
+
+* https://dev.to/codemouse92/has-stackoverflow-become-an-antipattern-3icb (http://web.archive.org/web/20191021090247/https://dev.to/codemouse92/has-stackoverflow-become-an-antipattern-3icb[archive])
+
 === GitHub
 
 If I were to write a book about Quantum mechanics today, I'd likely upload an asciidoc to GitHub.
@@ -596,9 +600,15 @@ PageRank variants:
 
 == Misc websites
 
+Traditional websites with good content model:
+
+* http://hyperphysics.phy-astr.gsu.edu/hbase/index.html
+
+No publishing innovation there, but inspirational presentation structure and scope.
+
 === Get free DOIs
 
-DOIs are identifiers for articicles, and what current research uses an identifiers.
+DOIs are identifiers for articles, and what current research uses an identifiers.
 
 https://academia.stackexchange.com/questions/81583/are-there-free-doi-generation-services
 
