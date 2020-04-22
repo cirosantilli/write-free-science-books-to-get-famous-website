@@ -9,7 +9,7 @@
 :toclevels: 6
 :toc-title:
 
-Mission: live in a world where you can learn university-level mathematics, physics, chemistry, biology and engineering for free whenever they want from perfect open source books made for free by people who want to get famous to get better paying jobs.
+Mission: live in a world where you can learn university-level mathematics, physics, chemistry, biology and engineering for free whenever you want from perfect open source books made for free by random people who want to get famous to get better paying jobs.
 
 toc::[]
 
@@ -88,7 +88,7 @@ On Stack Overflow for example:
 * the post with most upvotes goes gets the highest ranking, no matter how old it is or when the votes were made.
 +
 This means that very old posts, which gained a lot of upvotes, almost never leave the top, even if newer better posts come along.
-* if two users with the same reputation 
+* if two users with the same reputation
 
 We must include in our post score and user reputation a time factor, so that recent votes count more than old votes.
 
