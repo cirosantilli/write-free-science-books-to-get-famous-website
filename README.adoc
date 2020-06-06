@@ -387,7 +387,7 @@ Then we use algorithms to rank content.
 * Edit wars, just like Wikipedia, which require moderator intervention to solve.
 * Randomly split between sites like Stack Overflow vs Super User, with separate user reputations, but huge overlaps, and many questions that appears as dupes on both and never get merged.
 
-Bibliograpy:
+Bibliography:
 
 * https://dev.to/codemouse92/has-stackoverflow-become-an-antipattern-3icb (http://web.archive.org/web/20191021090247/https://dev.to/codemouse92/has-stackoverflow-become-an-antipattern-3icb[archive])
 
@@ -404,6 +404,21 @@ Out amazing website would allow the reader to add his own example of, say, The U
 Then, people who want to learn more about it, would click on the "defined tag" by the article, and our amazing analytics would point them to the best such articles.
 
 <<pubmed>> data represents this concept through the `MajorTopicYN` field!
+
+=== Googling into PDF/latex2html university lecture notes
+
+It is arguable that this is currently the best way to learn any university subject, and that it can already be used to learn any subject.
+
+We basically just want to make the process more efficient and enjoyable, by making it easier:
+
+* to find what you want based on an initial subject hit across the best version of any author
+* and to publish your own stuff with one click, and get feedback if people like it or not, and improvement suggestions like you do you GitHub
+
+There are also licensing issues, many of the university lecture notes are copyrighted often with unspecific licenses, rather than using open licenses those teachers must be waiting to see if they can ever publish their stuff and get some money...
+
+This makes it hard/impossible to fork and modify their content to your needs. Sometimes it is not even clear if you are allowed to distribute the fucking material as a PDF to your own class!
+
+Our website will destroy this bullshit, and have a single CC-BY-SA license to rule them all.
 
 == Business model
 
