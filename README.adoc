@@ -9,7 +9,7 @@
 :toclevels: 6
 :toc-title:
 
-MOVING to: https://cirosantilli.com/write-free-books-to-get-famous-website
+MOVING to: https://ourbigbook.com
 
 Mission: live in a world where you can learn university-level mathematics, physics, chemistry, biology and engineering for free whenever you want from perfect open source books made for free by random people who want to get famous to get better paying jobs.
 
